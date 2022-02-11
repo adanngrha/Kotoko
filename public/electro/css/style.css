@@ -1069,6 +1069,8 @@ textarea.input {
     bottom: 1px;
     padding: 15px;
     background: #297F87;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     text-align: center;
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
