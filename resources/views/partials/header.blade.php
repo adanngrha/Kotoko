@@ -14,7 +14,8 @@
                             <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
                             <li><a href="{{url('logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
                         @else
-                        <li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> Login</a></li>
+                            <li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> Login</a></li>
+                            <li><a href="{{route('register')}}"><i class="fa fa-user-o"></i> Register</a></li>
                         @endauth
                     @endif
                 </ul>
@@ -25,6 +26,25 @@
         <!-- MAIN HEADER -->
         <div id="header">
             <!-- container -->
+
+
+            @if (request()->routeIs('login') || request()->routeIs('register'))
+
+            <div class="container">
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-12">
+                        <div class="header-logo" style="justify-content: center">
+                            <a href="/" class="logo">
+                                <img src="electro/img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+                </div>
+            </div>
+
+            @else
             <div class="container">
                 <!-- row -->
                 <div class="row">
@@ -37,7 +57,6 @@
                         </div>
                     </div>
                     <!-- /LOGO -->
-
                     <!-- SEARCH BAR -->
                     <div class="col-md-6">
                         <div class="header-search">
@@ -111,8 +130,6 @@
                             </div>
                             <!-- /Cart -->
 
-
-
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">
                                 <a href="#">
@@ -123,6 +140,7 @@
                             <!-- /Menu Toogle -->
                         </div>
                     </div>
+                    @endif
                     <!-- /ACCOUNT -->
                 </div>
                 <!-- row -->

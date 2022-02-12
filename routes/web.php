@@ -27,23 +27,23 @@ Route::get('/', function () {
         'products' => $products,
         'categories' => $categories,
     ]);
-});
+})->name('home');
 
 //login regis
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'addLogin']);
-Route::get('/register', [LoginController::class, 'register']);
+Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'addRegister']);
 
 
 Route::middleware('auth')->group(function() {
     Route::get('/logout', [LoginController::class, 'logout']);
-    
-    Route::middleware('is.buyer')->group(function() {
-        
+
+    Route::middleware('isBuyer')->group(function() {
+
     });
 
-    Route::middleware('is.seller')->group(function() {
-        
+    Route::middleware('isSeller')->group(function() {
+
     });
 });

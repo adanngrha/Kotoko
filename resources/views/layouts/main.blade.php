@@ -46,7 +46,7 @@
 <body>
     @include('partials.header')
 
-    @include('partials.navigation')
+    @yield('navigation')
 
     @yield('content')
 

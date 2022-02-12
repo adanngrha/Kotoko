@@ -1,4 +1,4 @@
-@extends('layouts.loginmaster')
+@extends('layouts.main')
 
 @section('content')
 <!-- SECTION -->
@@ -42,9 +42,10 @@
                         <div class="form-group">
                             <input class="input" type="password" name="password2" placeholder="Password Confirmation">
                             <div class="m-2">
+                            <input type="hidden" name="role" value="2">
                             </div>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label class="d-flex justify-content-start">Choose Role</label>
                                     <select class="form-control selectric" name="role">
                                             <option value="2">Buyer</option>
@@ -52,7 +53,7 @@
                                     </select>
                             <div class="m-2">
                             </div>
-                        </div>
+                        </div> --}}
                         <br>
                         <div class="form-group">
                             <button type="submit" class="primary-btn order-submit">Sign Up</button>

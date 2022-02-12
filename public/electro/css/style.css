@@ -473,7 +473,7 @@ textarea.input {
 }
 
 .header-logo {
-    float: left;
+    /* float: left; */
 }
 
 .header-logo .logo img {
