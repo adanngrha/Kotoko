@@ -25,7 +25,7 @@
                     <!-- LOGO -->
                     <div class="col-md-3">
                         <div class="header-logo">
-                            <a href="#" class="logo">
+                            <a href="/" class="logo">
                                 <img src="electro/img/logo.png" alt="">
                             </a>
                         </div>

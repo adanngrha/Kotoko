@@ -569,6 +569,7 @@ textarea.input {
     position: absolute;
     width: 300px;
     background: #FFF;
+    border-radius: 10px;
     padding: 15px;
     -webkit-box-shadow: 0px 0px 0px 2px #E4E7ED;
     box-shadow: 0px 0px 0px 2px #E4E7ED;
@@ -617,7 +618,7 @@ textarea.input {
     width: calc(50% - 0px);
     padding: 12px;
     background-color: #DF2E2E;
-    color: black;
+    color: #FFF;
     text-align: center;
     font-weight: 700;
     -webkit-transition: 0.2s all;
@@ -1044,6 +1045,7 @@ textarea.input {
     font-size: 12px;
     line-height: 10px;
     background: #297F87;
+    border-radius: 10px;
     color: #FFF;
     text-transform: uppercase;
     z-index: 10;

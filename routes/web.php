@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    $products = Product::with('category')->get();
+    $categories = Category::all();
+
     return view('index', [
-        'title' => 'Welcome to Kotoko!'
+        'title' => 'Welcome to Kotoko!',
+        'products' => $products,
+        'categories' => $categories,
     ]);
 });
