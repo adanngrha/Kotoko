@@ -17,19 +17,17 @@ use App\Models\Category;
 |
 */
 
-// Route::get('/', function () {
+Route::get('/', function () {
 
-//     $products = Product::with('category')->get();
-//     $categories = Category::all();
+    $products = Product::with('category')->get();
+    $categories = Category::all();
 
-//     return view('index', [
-//         'title' => 'Welcome to Kotoko!',
-//         'products' => $products,
-//         'categories' => $categories,
-//     ]);
-// });
-
-Route::get('/', [HomeController::class, 'index']);
+    return view('index', [
+        'title' => 'Welcome to Kotoko!',
+        'products' => $products,
+        'categories' => $categories,
+    ]);
+});
 
 //login regis
 Route::get('/login', [LoginController::class, 'login'])->name('login');
