@@ -37,9 +37,10 @@
                         <div class="header-search">
                             <form>
                                 <select class="input-select">
-                                    <option value="0">All Categories</option>
-                                    <option value="1">Category 01</option>
-                                    <option value="1">Category 02</option>
+                                    <option value="">All Categories</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->slug }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                                 <input class="input" placeholder="Search here">
                                 <button class="search-btn">Search</button>
@@ -103,6 +104,8 @@
                                 </div>
                             </div>
                             <!-- /Cart -->
+
+
 
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">

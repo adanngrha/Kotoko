@@ -229,12 +229,8 @@
                                             <h3 class="product-name"><a href="#">{{ $product->name }}</a></h3>
                                             <h4 class="product-price">Rp{{ number_format($product->price, 2) }} {{--<del
                                                     class="product-old-price">Rp990.00</del>--}}</h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                            <div class="">
+                                                4 Terjual
                                             </div>
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -251,7 +247,7 @@
                                         </div>
                                     </div>
                                     @endforeach
-                                    <!-- /product -->
+                                <!-- /product -->
                                 </div>
                                 <div id="slick-nav-2" class="products-slick-nav"></div>
                             </div>
