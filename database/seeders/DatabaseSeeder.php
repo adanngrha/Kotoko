@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Profile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +22,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             RoleSeeder::class,
+        ]);
+
+        $user = User::create([
+            'username' => 'adan',
+            'email' => 'adan@test.test',
+            'password' => bcrypt('password'),
+        ]);
+        $user->assignRole("Buyer");
+
+        Profile::create([
+            'user_id' => $user['id'],
         ]);
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\EmailPasswordController;
 use App\Http\Controllers\LoginController;
 use App\Models\Product;
 use App\Models\Category;
@@ -40,7 +41,12 @@ Route::middleware('auth')->group(function() {
     Route::get('/logout', [LoginController::class, 'logout']);
 
     Route::middleware('isBuyer')->group(function() {
-
+        // Account
+        Route::resource('/account', AccountController::class);
+        Route::get('/change-email', [EmailPasswordController::class, 'indexEmail']);
+        Route::get('/change-password', [EmailPasswordController::class, 'indexPass']);
+        Route::post('/change-email', [EmailPasswordController::class, 'changeEmail']);
+        Route::post('/change-password', [EmailPasswordController::class, 'changePass']);
     });
 
     Route::middleware('isSeller')->group(function() {

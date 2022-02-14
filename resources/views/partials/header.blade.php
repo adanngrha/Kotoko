@@ -9,15 +9,13 @@
                     <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
                 </ul>
                 <ul class="header-links pull-right">
-                    @if (Route::has('login'))
-                        @auth
-                            <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
-                            <li><a href="{{url('logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
-                        @else
-                            <li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> Login</a></li>
-                            <li><a href="{{route('register')}}"><i class="fa fa-user-o"></i> Register</a></li>
-                        @endauth
-                    @endif
+                    @auth
+                        <li><a href="{{ url('/account') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                        <li><a href="{{url('logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
+                    @else
+                        <li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> Login</a></li>
+                        <li><a href="{{route('register')}}"><i class="fa fa-user-o"></i> Register</a></li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -28,7 +26,7 @@
             <!-- container -->
 
 
-            @if (request()->routeIs('login') || request()->routeIs('register'))
+            @if (!request()->routeIs('home'))
 
             <div class="container">
                 <div class="row">

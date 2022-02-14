@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->text('address_name');
-            $table->string('city');
-            $table->string('province');
-            $table->string('postal_code');
+            $table->text('address_name')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('postal_code')->nullable();
             $table->timestamps();
         });
     }

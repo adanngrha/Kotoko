@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,11 @@ class LoginController extends Controller
         ]);
         $user->assignRole($request->role);
 
-        return redirect('/');
+        Profile::create([
+            'user_id' => $user['id'],
+        ]);
+
+        return redirect('/login');
     }
 
     public function addLogin(Request $request) {
