@@ -32,7 +32,7 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="billing-details">
-										<form action="/change-password" method="POST">
+										<form action="change-password" method="POST">
                                             @csrf
                                             <table class="table table-borderless">
 												<tr>

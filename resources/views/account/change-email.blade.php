@@ -32,16 +32,16 @@
 							<div class="row">
 								<div class="col-md-8">
 									<div class="billing-details">
-										<form action="/change-email" method="POST">
+										<form action="change-email" method="POST">
                                             @csrf
 											<table class="table table-borderless">
 												<tr>
 													<td class="text-right align-middle text-gray" width="100">Email Lama</td>
-													<td class="align-middle pl-4"><input class="input" type="email" name="old_email" placeholder="Email Lama"></td>
+													<td class="align-middle pl-4"><input class="input" type="email" name="old_email" placeholder="Email Lama" value=""></td>
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Email Baru</td>
-													<td class="align-middle pl-4"><input class="input" type="email" name="new_email" placeholder="Email Baru"></td>
+													<td class="align-middle pl-4"><input class="input" type="email" name="new_email" placeholder="Email Baru" value=""></td>
 												</tr>
 												<tr>
 													<td></td>
