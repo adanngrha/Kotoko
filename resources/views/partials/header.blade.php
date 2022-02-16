@@ -10,7 +10,11 @@
                 </ul>
                 <ul class="header-links pull-right">
                     @auth
-                        <li><a href="{{ url('/account') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                        @if(Auth::user()->hasRole('buyer'))
+                            <li><a href="{{ url('/account') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                        @elseif(Auth::user()->hasRole('seller'))
+                        <li><a href="{{ url('/account-seller') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                        @endif
                         <li><a href="{{url('logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
                     @else
                         <li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> Login</a></li>
