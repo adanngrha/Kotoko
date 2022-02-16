@@ -28,7 +28,8 @@
 								{{-- <div class="alert alert-danger mb-3 text-center">Lengkapi Profil Anda! Mulai dari Nama hingga Tanggal Lahir.</div> --}}
 								<div class="col-md-8">
 									<div class="billing-details">
-										<form action="account/edit" method="get">
+										<form action="/account/edit" method="POST">
+                                            @csrf
 											<table class="table table-borderless">
 												<tr>
 													<td class="text-right align-middle text-gray" width="150">Username</td>
@@ -36,7 +37,7 @@
 												</tr>
 												<tr>
                                                         <td class="text-right align-middle text-gray">Nama</td>
-													    <td class="align-middle pl-4"><input type="text" class="input" name="name" value="{{ $user->name }}"></td>
+													    <td class="align-middle pl-4"><input type="text" class="input" name="full_name" value="{{ $user->profile->full_name }}" placeholder="Masukan nama lengkap Anda"></td>
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Email</td>
@@ -44,22 +45,30 @@
 												</tr>
 												<tr>
                                                     <td class="text-right align-middle text-gray">Nomor Telepon</td>
-													<td class="align-middle pl-4"><input type="text" class="input" name="phone_number" value="{{ $user->profile->phone_number }}"></td>
+													<td class="align-middle pl-4"><input type="text" class="input" name="phone_number" value="{{ $user->profile->phone_number }}" placeholder="Masukan nomor telepon Anda"></td>
 												</tr>
 												<tr>
                                                     <td class="text-right align-middle text-gray">Jenis Kelamin</td>
                                                     <td class="align-middle pl-4">
-                                                        <input type="radio" name="gender" value="men"> Laki-laki
-                                                        <input type="radio" name="gender" value="women"> Perempuan
+                                                        @if ($user->profile->gender == 'men')
+                                                            <input type="radio" name="gender" value="men" checked> Laki-laki
+                                                            <input type="radio" name="gender" value="women"> Perempuan
+                                                        @elseif ($user->profile->gender == 'women')
+                                                            <input type="radio" name="gender" value="men"> Laki-laki
+                                                            <input type="radio" name="gender" value="women" checked> Perempuan
+                                                        @else
+                                                            <input type="radio" name="gender" value="men"> Laki-laki
+                                                            <input type="radio" name="gender" value="women"> Perempuan
+                                                        @endif
                                                     </td>
 												</tr>
 												<tr>
                                                     <td class="text-right align-middle text-gray">Tanggal Lahir</td>
-                                                    <td class="align-middle pl-4"><input type="datetime" class="input" name="birth_date" value="{{ $user->profile->birth_date }}"></td>
+                                                    <td class="align-middle pl-4"><input type="datetime" class="input" name="birth_date" value="{{ $user->profile->birth_date }}" placeholder="Masukan tanggal lahir Anda"></td>
 												</tr>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><a href="account/edit" class="primary-btn">Simpan</a></td>
+													<td class="align-middle pl-4"><button class="primary-btn" type="save">Simpan</button></td>
 												</tr>
 											</table>
                                         </form>

@@ -63,7 +63,11 @@
 												<tr>
                                                     @if ($user->profile->gender)
                                                         <td class="text-right align-middle text-gray">Jenis Kelamin</td>
-													    <td class="align-middle pl-4">{{ $user->profile->gender }}</td>
+                                                        @if ($user->profile->gender == 'men')
+                                                            <td class="align-middle pl-4">Laki-laki</td>
+                                                        @else
+                                                            <td class="align-middle pl-4">Perempuan</td>
+                                                        @endif
                                                     @else
                                                         <td class="text-right align-middle text-gray">Jenis Kelamin</td>
 													    <td class="align-middle pl-4">Belum Ada</td>

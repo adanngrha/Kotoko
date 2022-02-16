@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class AccountController extends Controller
 {
@@ -31,9 +33,19 @@ class AccountController extends Controller
         ]);
     }
 
-    public function editAccount()
+    public function editAccount(Request $request)
     {
+        $validated = $request->validate([
+            'full_name' => 'required',
+            'phone_number' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+        ]);
 
+        Profile::where('user_id', auth()->id())
+                    ->update($validated);
+
+        return redirect('/account')->with('success', 'Profil berhasil diedit!');
     }
     // Edit Account
 
