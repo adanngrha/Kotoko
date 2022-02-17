@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $user = User::create([
+            'id'=>2,
             'username' => 'adan',
             'email' => 'adan@test.test',
             'password' => bcrypt('password'),
@@ -33,6 +34,18 @@ class DatabaseSeeder extends Seeder
 
         Profile::create([
             'user_id' => $user['id'],
+        ]);
+
+        $seller = User::create([
+            'id'=>1,
+            'username' => 'seller',
+            'email' => 'seller@test.test',
+            'password' => bcrypt('seller123'),
+        ]);
+        $seller->assignRole(3);
+
+        Profile::create([
+            'user_id' => $seller['id'],
         ]);
     }
 }
