@@ -38,7 +38,7 @@
                     <div class="col-md-12">
                         <div class="header-logo" style="justify-content: center">
                             <a href="/" class="logo">
-                                <img src="electro/img/logo.png" alt="">
+                                <img src="{{ asset('electro/img/logo.png') }}" alt="">
                             </a>
                         </div>
                     </div>

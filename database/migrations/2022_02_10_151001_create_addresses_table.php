@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->string('receiver_name');
+            $table->string('receiver_phone_number');
             $table->text('address_name')->nullable();
             $table->string('city')->nullable();
             $table->string('province')->nullable();
             $table->string('postal_code')->nullable();
+            $table->enum('main', ['1', '0'])->default(0);
             $table->timestamps();
         });
     }

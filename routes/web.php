@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\EmailPasswordController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SellerController;
+use App\Models\Address;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -29,6 +30,7 @@ Route::get('/', function () {
         'products' => $products,
         'categories' => $categories,
     ]);
+
 })->name('home');
 
 //product-seller
@@ -45,18 +47,28 @@ Route::post('/login', [LoginController::class, 'addLogin']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'addRegister']);
 
-
 Route::middleware('auth')->group(function() {
+
     Route::get('/logout', [LoginController::class, 'logout']);
     
 
     Route::middleware('isBuyer')->group(function() {
+
         // Account
-        Route::resource('/account', AccountController::class);
-        Route::get('/change-email', [EmailPasswordController::class, 'indexEmail']);
-        Route::get('/change-password', [EmailPasswordController::class, 'indexPass']);
-        Route::post('/change-email', [EmailPasswordController::class, 'changeEmail']);
-        Route::post('/change-password', [EmailPasswordController::class, 'changePass']);
+        Route::get('/account', [AccountController::class, 'index'])->name('account');
+        Route::prefix('account')->group(function () {
+            Route::get('/edit', [AccountController::class, 'showEdit'])->name('showEditAccount');
+            Route::post('/edit', [AccountController::class, 'editAccount'])->name('editAccount');
+            Route::get('/change-email', [AccountController::class, 'indexEmail'])->name('indexEmail');
+            Route::post('/change-email', [AccountController::class, 'changeEmail'])->name('changeEmail');
+            Route::get('/change-password', [AccountController::class, 'indexPass'])->name('indexPass');
+            Route::post('/change-password', [AccountController::class, 'changePass'])->name('changePass');
+        });
+
+        // Address
+        Route::resource('/address', AddressController::class);
+        Route::get('/address-main/{id}', [AddressController::class, 'main']);
+
     });
 
     Route::middleware('isSeller')->group(function() {
@@ -67,5 +79,9 @@ Route::middleware('auth')->group(function() {
         Route::post('/change-email', [EmailPasswordController::class, 'changeEmail']);
         Route::post('/change-password', [EmailPasswordController::class, 'changePass']);
         
+    });
+
+    Route::middleware('isAdmin')->group(function () {
+
     });
 });

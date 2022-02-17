@@ -28,7 +28,7 @@
 								{{-- <div class="alert alert-danger mb-3 text-center">Lengkapi Profil Anda! Mulai dari Nama hingga Tanggal Lahir.</div> --}}
 								<div class="col-md-8">
 									<div class="billing-details">
-										<form action="#" method="POST">
+										<form action="account/edit" method="get">
 											<table class="table table-borderless">
 												<tr>
 													<td class="text-right align-middle text-gray" width="150">Username</td>
@@ -45,11 +45,11 @@
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Email</td>
-													<td class="align-middle pl-4">{{ $user->email }} <a href="/change-email" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Ubah</a></td>
+													<td class="align-middle pl-4">{{ $user->email }} <a href="account/change-email" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Ubah</a></td>
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Password</td>
-													<td class="align-middle pl-4">********** <a href="/change-password" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Ubah</a></td>
+													<td class="align-middle pl-4">********** <a href="account/change-password" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Ubah</a></td>
 												</tr>
 												<tr>
                                                     @if ($user->profile->phone_number)
@@ -63,7 +63,11 @@
 												<tr>
                                                     @if ($user->profile->gender)
                                                         <td class="text-right align-middle text-gray">Jenis Kelamin</td>
-													    <td class="align-middle pl-4">{{ $user->profile->gender }}</td>
+                                                        @if ($user->profile->gender == 'men')
+                                                            <td class="align-middle pl-4">Laki-laki</td>
+                                                        @else
+                                                            <td class="align-middle pl-4">Perempuan</td>
+                                                        @endif
                                                     @else
                                                         <td class="text-right align-middle text-gray">Jenis Kelamin</td>
 													    <td class="align-middle pl-4">Belum Ada</td>
@@ -78,12 +82,13 @@
                                                         <td class="align-middle pl-4">Belum Ada</td>
                                                     @endif
 												</tr>
+                                                </form>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><button class="primary-btn" name="save" type="submit">Edit Akun</button></td>
+													<td class="align-middle pl-4"><a href="account/edit" class="primary-btn">Edit Akun</a></td>
 												</tr>
 											</table>
-										</form>
+
 									</div>
 								</div>
 							</div>
