@@ -87,7 +87,10 @@ class AddressController extends Controller
      */
     public function edit(Address $address)
     {
-        //
+        return view('address.edit', [
+            'title' => "Edit Alamat Anda",
+            'address' => $address,
+        ]);
     }
 
     /**
@@ -99,7 +102,18 @@ class AddressController extends Controller
      */
     public function update(Request $request, Address $address)
     {
-        //
+        $validated = $request->validate([
+            'receiver_name' => 'required|min:3',
+            'receiver_phone_number' => 'required|min:7',
+            'address_name' => 'required|min:10',
+            'city' => 'required',
+            'province' => 'required',
+            'postal_code' => 'required',
+        ]);
+
+        Address::where('id', $address->id)->update($validated);
+
+        return redirect('/address')->with('success', 'Alamat berhasil diedit!');
     }
 
     /**
@@ -110,7 +124,9 @@ class AddressController extends Controller
      */
     public function destroy(Address $address)
     {
-        //
+        Address::destroy($address->id);
+
+        return redirect('/address')->with('success', 'Post has been deleted.');
     }
 
     public function main($id)

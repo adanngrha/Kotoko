@@ -16,7 +16,7 @@
 					<!-- STORE -->
 					<div class="col-md-9">
 						<div id="my-profile">
-							<h3>Profil Saya</h3>
+							<h3>Edit Profil Saya</h3>
 							<p>Kelola informasi profil Anda untuk mengontrol, melindungi dan mengamankan akun.</p>
 							<hr>
 							<div class="row">

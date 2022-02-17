@@ -10,7 +10,7 @@
     <title>{{ $title }}</title>
 
     {{-- Icon --}}
-    <link rel = "icon" href ="electro/img/k-icon.png" type = "image/x-icon">
+    <link rel = "icon" href ="{{ asset('electro/img/k-icon.png') }}" type="image/x-icon">
 
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

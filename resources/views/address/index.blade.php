@@ -34,12 +34,7 @@
                                     <tr>
                                         <td width="130" class="text-gray text-right">Nama Penerima</td>
                                         <td><b>{{ $address->receiver_name }}</b> <span class="label-new">Utama</span></td>
-                                        <td class="align-bottom" width="90" rowspan="2"><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah</a></td>
-                                        <form action="/address/{{ $address->id }}">
-                                            @csrf
-                                            @method('delete')
-                                            <td class="align-bottom" width="90" rowspan="2"><i class="fa fa-fw fa-trash-o"></i> Hapus</td>
-                                        </form>
+                                        <td class="align-bottom" width="90" rowspan="2"><button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah/Edit</a></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-gray text-right">Telepon Penerima</td>
@@ -59,10 +54,11 @@
                                     <tr>
                                         <td width="130" class="text-gray text-right">Nama Penerima</td>
                                         <td><b>{{ $address->receiver_name }}</b></td>
-                                        <td class="align-bottom" width="90" rowspan="2"><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah</a></td>
-                                        <form action="/address/{{ $address->id }}">
+                                        <td class="align-bottom" width="90" rowspan="2"><button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah/Edit</a></button></td>
+                                        <form action="/address/{{ $address->id }}" class="d-inline" method="POST">
                                             @method('delete')
-                                            <td class="align-bottom" width="90" rowspan="2"><i class="fa fa-fw fa-trash-o"></i> Hapus</td>
+                                            @csrf
+                                            <td class="align-bottom" width="90" rowspan="2"><button type="submit" onclick="return confirm('Are you sure?')"><i class="fa fa-fw fa-trash-o"></i> Hapus</button> </td>
                                         </form>
                                     </tr>
                                     <tr>
