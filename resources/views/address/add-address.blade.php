@@ -17,8 +17,8 @@
 					<div class="col-md-9">
 						<div id="my-profile">
 							<div class="d-flex justify-content-between align-items-center">
-								<h3>Tambah Alamat</h3>
-								<a href="/address" class="icon-primary"><i class="fa fa-fw fa-angle-left"></i> Kembali</a>
+								<h3>Add an Address</h3>
+								<a href="/address" class="icon-primary"><i class="fa fa-fw fa-angle-left"></i> Back</a>
 							</div>
 							<hr>
 							<div class="row">
@@ -28,32 +28,32 @@
                                             @csrf
 											<table class="table table-borderless">
 												<tr>
-													<td class="text-right align-middle text-gray" width="150">Nama Penerima</td>
-													<td class="align-middle pl-4"><input class="input" type="text" name="receiver_name" placeholder="Nama Penerima" value="{{ old('receiver_name') }}"></td>
+													<td class="text-right align-middle text-gray" width="150">Receiver Name</td>
+													<td class="align-middle pl-4"><input class="input" type="text" name="receiver_name" placeholder="Receiver Name" value="{{ old('receiver_name') }}"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Nomor Telepon</td>
-													<td class="align-middle pl-4"><input class="input" type="text" min="0" name="receiver_phone_number" placeholder="Nomor Telepon Penerima" value="{{ old('receiver_phone_number') }}"></td>
+													<td class="text-right align-middle text-gray">Phone Number</td>
+													<td class="align-middle pl-4"><input class="input" type="text" min="0" name="receiver_phone_number" placeholder="Receiver Phone Number" value="{{ old('receiver_phone_number') }}"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Alamat</td>
-													<td class="align-middle pl-4"><input class="input" type="text" name="address_name" placeholder="Nama Jalan, Gedung, No Rumah" value="{{ old('address_name') }}"></td>
+													<td class="text-right align-middle text-gray">Address</td>
+													<td class="align-middle pl-4"><input class="input" type="text" name="address_name" placeholder="Street Name, Building" value="{{ old('address_name') }}"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Kabupaten/Kota</td>
-													<td class="align-middle pl-4"><input class="input" type="text" name="city" placeholder="Kabupaten atau Kota Penerima" value="{{ old('city') }}"></td>
+													<td class="text-right align-middle text-gray">City</td>
+													<td class="align-middle pl-4"><input class="input" type="text" name="city" placeholder="Receiver City" value="{{ old('city') }}"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Provinsi</td>
-													<td class="align-middle pl-4"><input class="input" type="text" name="province" placeholder="Provinsi Penerima" value="{{ old('province') }}"></td>
+													<td class="text-right align-middle text-gray">Province</td>
+													<td class="align-middle pl-4"><input class="input" type="text" name="province" placeholder="Receiver Province" value="{{ old('province') }}"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Kode Pos</td>
-													<td class="align-middle pl-4"><input class="input" type="text" name="postal_code" placeholder="Kode Pos Penerima" value="{{ old('postal_code') }}"></td>
+													<td class="text-right align-middle text-gray">Postal Code</td>
+													<td class="align-middle pl-4"><input class="input" type="text" name="postal_code" placeholder="Receiver Postal Code" value="{{ old('postal_code') }}"></td>
 												</tr>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><button class="primary-btn" name="save" type="submit">Tambah</button></td>
+													<td class="align-middle pl-4"><button class="primary-btn" name="save" type="submit"> Add</button></td>
 												</tr>
 											</table>
 										</form>

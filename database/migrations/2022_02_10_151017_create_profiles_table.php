@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('full_name')->nullable();
-            $table->enum('gender',['men', 'women'])->nullable();
+            $table->enum('gender',['man', 'woman'])->nullable();
             $table->string('phone_number')->nullable();
             $table->date('birth_date')->nullable();
             $table->timestamps();

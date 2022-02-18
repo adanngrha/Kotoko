@@ -16,8 +16,8 @@
 					<!-- STORE -->
 					<div class="col-md-9">
 						<div id="my-profile">
-							<h3>Profil Saya</h3>
-							<p>Kelola informasi profil Anda untuk mengontrol, melindungi dan mengamankan akun.</p>
+							<h3>My Profile</h3>
+							<p>Manage your profile information to control, protect and save your account.</p>
 							<hr>
 							<div class="row">
                                 @if (session('success'))
@@ -36,56 +36,56 @@
 												</tr>
 												<tr>
                                                     @if ($user->name)
-                                                        <td class="text-right align-middle text-gray">Nama</td>
+                                                        <td class="text-right align-middle text-gray">Full Name</td>
 													    <td class="align-middle pl-4">{{ $user->name }}</td>
                                                     @else
-                                                        <td class="text-right align-middle text-gray">Nama</td>
-													    <td class="align-middle pl-4">Belum Ada</td>
+                                                        <td class="text-right align-middle text-gray">Full Name</td>
+													    <td class="align-middle pl-4">Not filled yet</td>
                                                     @endif
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Email</td>
-													<td class="align-middle pl-4">{{ $user->email }} <a href="account/change-email" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Ubah</a></td>
+													<td class="align-middle pl-4">{{ $user->email }} <a href="account/change-email" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Change</a></td>
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Password</td>
-													<td class="align-middle pl-4">********** <a href="account/change-password" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Ubah</a></td>
+													<td class="align-middle pl-4">********** <a href="account/change-password" class="ml-2"><i class="fa fa-fw fa-pencil-square-o"></i>Change</a></td>
 												</tr>
 												<tr>
                                                     @if ($user->profile->phone_number)
-                                                    <td class="text-right align-middle text-gray">Nomor Telepon</td>
+                                                    <td class="text-right align-middle text-gray">Phone Number</td>
 													<td class="align-middle pl-4">{{ $user->profile->phone_number }}</td>
                                                     @else
-                                                    <td class="text-right align-middle text-gray">Nomor Telepon</td>
-													<td class="align-middle pl-4">Belum Ada</td>
+                                                    <td class="text-right align-middle text-gray">Phone Number</td>
+													<td class="align-middle pl-4">Not filled yet</td>
                                                     @endif
 												</tr>
 												<tr>
                                                     @if ($user->profile->gender)
-                                                        <td class="text-right align-middle text-gray">Jenis Kelamin</td>
-                                                        @if ($user->profile->gender == 'men')
-                                                            <td class="align-middle pl-4">Laki-laki</td>
+                                                        <td class="text-right align-middle text-gray">Gender</td>
+                                                        @if ($user->profile->gender == 'man')
+                                                            <td class="align-middle pl-4">Man</td>
                                                         @else
-                                                            <td class="align-middle pl-4">Perempuan</td>
+                                                            <td class="align-middle pl-4">Woman</td>
                                                         @endif
                                                     @else
-                                                        <td class="text-right align-middle text-gray">Jenis Kelamin</td>
-													    <td class="align-middle pl-4">Belum Ada</td>
+                                                        <td class="text-right align-middle text-gray">Gender</td>
+													    <td class="align-middle pl-4">Not filled yet</td>
                                                     @endif
 												</tr>
 												<tr>
                                                     @if ($user->profile->birth_date)
-                                                        <td class="text-right align-middle text-gray">Tanggal Lahir</td>
+                                                        <td class="text-right align-middle text-gray">Birth Date</td>
                                                         <td class="align-middle pl-4">{{ $user->profile->birth_date }}</td>
                                                     @else
-                                                        <td class="text-right align-middle text-gray">Tanggal Lahir</td>
-                                                        <td class="align-middle pl-4">Belum Ada</td>
+                                                        <td class="text-right align-middle text-gray">Birth date</td>
+                                                        <td class="align-middle pl-4">Not filled yet</td>
                                                     @endif
 												</tr>
                                                 </form>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><a href="account/edit" class="primary-btn">Edit Akun</a></td>
+													<td class="align-middle pl-4"><a href="account/edit" class="primary-btn">Edit Account</a></td>
 												</tr>
 											</table>
 									</div>

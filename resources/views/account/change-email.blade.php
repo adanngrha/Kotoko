@@ -18,10 +18,10 @@
 						<div id="my-profile">
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex flex-col">
-									<h3>Ubah Email</h3>
-									<p>Untuk keamanan akun Anda, mohon untuk tidak menyebarkan email Anda ke orang lain.</p>
+									<h3>Change Email</h3>
+									<p>For the security of your account, please do not share your email with other person.</p>
 								</div>
-								<a href="/account" class="icon-primary"><i class="fa fa-fw fa-angle-left"></i> Kembali</a>
+								<a href="/account" class="icon-primary"><i class="fa fa-fw fa-angle-left"></i> Back</a>
 							</div>
 							<hr>
                             @if (session('failed'))
@@ -36,16 +36,16 @@
                                             @csrf
 											<table class="table table-borderless">
 												<tr>
-													<td class="text-right align-middle text-gray" width="100">Email Lama</td>
-													<td class="align-middle pl-4"><input class="input" type="email" name="old_email" placeholder="Email Lama" value=""></td>
+													<td class="text-right align-middle text-gray" width="100">Old Email</td>
+													<td class="align-middle pl-4"><input class="input" type="email" name="old_email" placeholder="Old Email" value=""></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Email Baru</td>
-													<td class="align-middle pl-4"><input class="input" type="email" name="new_email" placeholder="Email Baru" value=""></td>
+													<td class="text-right align-middle text-gray">New Email</td>
+													<td class="align-middle pl-4"><input class="input" type="email" name="new_email" placeholder="New Email" value=""></td>
 												</tr>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><button class="primary-btn" name="ubah" type="submit">Ubah</button></td>
+													<td class="align-middle pl-4"><button class="primary-btn" name="ubah" type="submit">Confirm</button></td>
 												</tr>
 											</table>
 										</form>

@@ -16,8 +16,8 @@
 					<!-- STORE -->
 					<div class="col-md-9">
 						<div id="my-profile">
-							<h3>Edit Profil Saya</h3>
-							<p>Kelola informasi profil Anda untuk mengontrol, melindungi dan mengamankan akun.</p>
+							<h3>Edit My Profile</h3>
+							<p>Please fill all form.</p>
 							<hr>
 							<div class="row">
                                 @if (session('success'))
@@ -36,39 +36,39 @@
 													<td class="align-middle pl-4">{{ $user->username }}</td>
 												</tr>
 												<tr>
-                                                        <td class="text-right align-middle text-gray">Nama</td>
-													    <td class="align-middle pl-4"><input type="text" class="input" name="full_name" value="{{ $user->profile->full_name }}" placeholder="Masukan nama lengkap Anda"></td>
+                                                        <td class="text-right align-middle text-gray">Full Name</td>
+													    <td class="align-middle pl-4"><input type="text" class="input" name="full_name" value="{{ $user->profile->full_name }}" placeholder="Enter your full name"></td>
 												</tr>
 												<tr>
 													<td class="text-right align-middle text-gray">Email</td>
 													<td class="align-middle pl-4">{{ $user->email }} </td>
 												</tr>
 												<tr>
-                                                    <td class="text-right align-middle text-gray">Nomor Telepon</td>
-													<td class="align-middle pl-4"><input type="text" class="input" name="phone_number" value="{{ $user->profile->phone_number }}" placeholder="Masukan nomor telepon Anda"></td>
+                                                    <td class="text-right align-middle text-gray">Phone Number</td>
+													<td class="align-middle pl-4"><input type="text" class="input" name="phone_number" value="{{ $user->profile->phone_number }}" placeholder="Enter your phone number"></td>
 												</tr>
 												<tr>
-                                                    <td class="text-right align-middle text-gray">Jenis Kelamin</td>
+                                                    <td class="text-right align-middle text-gray">Gender</td>
                                                     <td class="align-middle pl-4">
-                                                        @if ($user->profile->gender == 'men')
-                                                            <input type="radio" name="gender" value="men" checked> Laki-laki
-                                                            <input type="radio" name="gender" value="women"> Perempuan
-                                                        @elseif ($user->profile->gender == 'women')
-                                                            <input type="radio" name="gender" value="men"> Laki-laki
-                                                            <input type="radio" name="gender" value="women" checked> Perempuan
+                                                        @if ($user->profile->gender == 'man')
+                                                            <input type="radio" name="gender" value="man" checked> Man
+                                                            <input type="radio" name="gender" value="woman"> Woman
+                                                        @elseif ($user->profile->gender == 'woman')
+                                                            <input type="radio" name="gender" value="man"> Man
+                                                            <input type="radio" name="gender" value="woman" checked> Woman
                                                         @else
-                                                            <input type="radio" name="gender" value="men"> Laki-laki
-                                                            <input type="radio" name="gender" value="women"> Perempuan
+                                                            <input type="radio" name="gender" value="man"> Man
+                                                            <input type="radio" name="gender" value="woman"> Woman
                                                         @endif
                                                     </td>
 												</tr>
 												<tr>
-                                                    <td class="text-right align-middle text-gray">Tanggal Lahir</td>
-                                                    <td class="align-middle pl-4"><input type="datetime" class="input" name="birth_date" value="{{ $user->profile->birth_date }}" placeholder="Masukan tanggal lahir Anda"></td>
+                                                    <td class="text-right align-middle text-gray">Birth Date</td>
+                                                    <td class="align-middle pl-4"><input type="datetime" class="input" name="birth_date" value="{{ $user->profile->birth_date }}" placeholder="Enter your birth date"></td>
 												</tr>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><button class="primary-btn" type="save">Simpan</button></td>
+													<td class="align-middle pl-4"><button class="primary-btn" type="save">Save</button></td>
 												</tr>
 											</table>
                                         </form>

@@ -18,10 +18,10 @@
 						<div id="my-profile">
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex flex-col">
-									<h3>Ubah Password</h3>
-									<p>Untuk keamanan akun Anda, mohon untuk tidak menyebarkan password Anda ke orang lain.</p>
+									<h3>Change Password</h3>
+									<p>For the security of your account, please do not share your password with other person.</p>
 								</div>
-								<a href="/account" class="icon-primary"><i class="fa fa-fw fa-angle-left"></i> Kembali</a>
+								<a href="/account" class="icon-primary"><i class="fa fa-fw fa-angle-left"></i> Back</a>
 							</div>
 							<hr>
                             @if (session('failed'))
@@ -36,20 +36,20 @@
                                             @csrf
                                             <table class="table table-borderless">
 												<tr>
-													<td class="text-right align-middle text-gray" width="180">Password Lama</td>
-													<td class="align-middle pl-4"><input class="input" type="password" name="old_password" placeholder="Password Lama"></td>
+													<td class="text-right align-middle text-gray" width="180">Old Password</td>
+													<td class="align-middle pl-4"><input class="input" type="password" name="old_password" placeholder="Old Password"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Password Baru</td>
-													<td class="align-middle pl-4"><input class="input" type="password" name="new_password" placeholder="Password Baru"></td>
+													<td class="text-right align-middle text-gray">New Password</td>
+													<td class="align-middle pl-4"><input class="input" type="password" name="new_password" placeholder="New Password"></td>
 												</tr>
 												<tr>
-													<td class="text-right align-middle text-gray">Ulangi Password Baru</td>
-													<td class="align-middle pl-4"><input class="input" type="password" name="new_password2" placeholder="Ulangi Password Baru"></td>
+													<td class="text-right align-middle text-gray">Repeat New Password</td>
+													<td class="align-middle pl-4"><input class="input" type="password" name="new_password2" placeholder="Repeat New Password"></td>
 												</tr>
 												<tr>
 													<td></td>
-													<td class="align-middle pl-4"><button class="primary-btn" name="ubah" type="submit">Ubah</button></td>
+													<td class="align-middle pl-4"><button class="primary-btn" name="ubah" type="submit">Confirm</button></td>
 												</tr>
 											</table>
 										</form>

@@ -23,8 +23,8 @@
                             @endif
 
 							<div class="d-flex justify-content-between align-items-center">
-								<h3>Alamat Saya</h3>
-								<a href="/address/create" class="icon-primary"><i class="fa fa-fw fa-plus"></i> Tambah Alamat</a>
+								<h3>My Addresses</h3>
+								<a href="/address/create" class="icon-primary"><i class="fa fa-fw fa-plus"></i> Add an Address</a>
 							</div>
 
 							<!-- Start Address -->
@@ -32,16 +32,16 @@
                                 @if ($address->main == 1)
                                 <table class="table table-borderless">
                                     <tr>
-                                        <td width="130" class="text-gray text-right">Nama Penerima</td>
-                                        <td><b>{{ $address->receiver_name }}</b> <span class="label-new">Utama</span></td>
-                                        <td class="align-bottom" width="90" rowspan="2"><button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah/Edit</a></button></td>
+                                        <td width="130" class="text-gray text-right">Receiver Name</td>
+                                        <td><b>{{ $address->receiver_name }}</b> <span class="label-new">Main</span></td>
+                                        <td class="align-bottom" width="90" rowspan="2"><button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Edit</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-gray text-right">Telepon Penerima</td>
+                                        <td class="text-gray text-right">Receiver Phone Number</td>
                                         <td>{{ $address->receiver_phone_number }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-gray text-right">Alamat Penerima</td>
+                                        <td class="text-gray text-right">Receiver Address</td>
                                         <td >{{ $address->address_name }} <br>
                                         {{ $address->city }} <br>
                                         {{ $address->province }} <br>
@@ -52,9 +52,9 @@
                                 @else
                                 <table class="table table-borderless">
                                     <tr>
-                                        <td width="130" class="text-gray text-right">Nama Penerima</td>
+                                        <td width="130" class="text-gray text-right">Receiver Name</td>
                                         <td><b>{{ $address->receiver_name }}</b></td>
-                                        <td class="align-bottom" width="90" rowspan="2"><button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah/Edit</a></button></td>
+                                        <td class="align-bottom" width="90" rowspan="2"><button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Edit</a></button></td>
                                         <form action="/address/{{ $address->id }}" class="d-inline" method="POST">
                                             @method('delete')
                                             @csrf
@@ -62,17 +62,17 @@
                                         </form>
                                     </tr>
                                     <tr>
-                                        <td class="text-gray text-right">Telepon Penerima</td>
+                                        <td class="text-gray text-right">Receiver Phone Number</td>
                                         <td>{{ $address->receiver_phone_number }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-gray text-right">Alamat Penerima</td>
+                                        <td class="text-gray text-right">Receiver Address</td>
                                         <td >{{ $address->address_name }} <br>
                                         {{ $address->city }} <br>
                                         {{ $address->province }} <br>
                                         {{ $address->postal_code }} <br>
                                         </td>
-                                        <td colspan="2"><a href="/address-main/{{ $address->id }}" class="primary-btn">Atur Sebagai Utama</a></td>
+                                        <td colspan="2"><a href="/address-main/{{ $address->id }}" class="primary-btn">Set to Main Address</a></td>
                                     </tr>
                                 </table>
                                 @endif
