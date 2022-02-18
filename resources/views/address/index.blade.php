@@ -28,7 +28,7 @@
 							</div>
 
 							<!-- Start Address -->
-                            @foreach ($addresses as $address)
+                            @forelse ($addresses as $address)
                                 @if ($address->main == 1)
                                 <table class="table table-borderless">
                                     <tr>
@@ -76,7 +76,14 @@
                                     </tr>
                                 </table>
                                 @endif
-                            @endforeach
+                                @empty
+                                <table class="table table-borderless">
+                                    <br>
+                                    <tr>
+                                        <td class="text-center"><h4>No data! Add your address now.</h4></td>
+                                    </tr>
+                                </table>
+                            @endforelse
 							<!-- End Address -->
 
 						</div>

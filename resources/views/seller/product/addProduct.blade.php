@@ -13,14 +13,14 @@
                         <div id="my-profile">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h3>Tambah Produk</h3>
-                                <a href="{{ url('list-product') }}" class="icon-primary"><i
+                                <a href="{{ url('/products') }}" class="icon-primary"><i
                                         class="fa fa-fw fa-angle-left"></i> Kembali</a>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="billing-details">
-                                        <form action="{{ url('add-product') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="/products" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <table class="table table-borderless">
                                                 <tr>
@@ -59,7 +59,7 @@
                                                 <tr>
                                                     <td class="text-right align-middle text-gray">Kategori </td>
                                                     <td class="align-middle pl-4">
-                                                        <select class="form-control selectric" name="categoryId">
+                                                        <select class="form-control selectric" name="category_id">
                                                             @foreach ($categories as $category)
                                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                             @endforeach
@@ -74,7 +74,7 @@
                                                     <td class="text-right align-middle text-gray">Deskripsi</td>
                                                     <td class="align-middle pl-4">
                                                     <textarea name="description" id="description" class="form-control" cols="30" rows="10" placeholder="Deskripsi Barang"></textarea>
-    
+
                                                         <div class="m-2">
                                                             <small
                                                                 class="text-left text-danger"></small>
@@ -102,11 +102,9 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-    
-    
                                                 <tr>
                                                     <td></td>
-                                                    <td class="align-middle pl-4"><button class="primary-btn" name="save"
+                                                    <td class="align-middle pl-4"><button class="primary-btn"
                                                             type="submit">Tambah</button></td>
                                                 </tr>
                                             </table>

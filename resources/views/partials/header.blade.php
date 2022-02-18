@@ -11,13 +11,16 @@
                 <ul class="header-links pull-right">
                     @auth
                         @if(Auth::user()->hasRole('buyer'))
-                            <li><a href="{{ url('/account') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                            <li style="color: white"> Hola, {{ Auth::user()->username }}!</li>
+                            @if (!request()->routeIs('account'))
+                                <li><a href="{{ url('/account') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                            @endif
                         @elseif(Auth::user()->hasRole('seller'))
-                        <li><a href="{{ url('/account-seller') }}"><i class="fa fa-user-o"></i> Profile</a></li>
+                            <li style="color: white"> Hola, Seller!</li>
                         @endif
-                        <li><a href="{{url('logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
+                            <li><a href="{{url('logout')}}"><i class="fa fa-sign-out"></i> Logout</a></li>
                     @else
-                        <li><a href="{{route('login')}}"><i class="fa fa-user-o"></i> Login</a></li>
+                        <li><a href="{{route('login')}}"><i class="fa fa-sign-in"></i> Login</a></li>
                         <li><a href="{{route('register')}}"><i class="fa fa-user-o"></i> Register</a></li>
                     @endauth
                 </ul>
@@ -29,7 +32,6 @@
         <div id="header">
             <!-- container -->
 
-
             @if (!request()->routeIs('home'))
 
             <div class="container">
@@ -37,9 +39,22 @@
                     <!-- LOGO -->
                     <div class="col-md-12">
                         <div class="header-logo" style="justify-content: center">
-                            <a href="/" class="logo">
-                                <img src="{{ asset('electro/img/logo.png') }}" alt="">
-                            </a>
+                            @guest
+                                <a href="/" class="logo">
+                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
+                                </a>
+                            @endguest
+                            @auth
+                                @if(Auth::user()->hasRole('seller') || Auth::user()->hasRole('admin'))
+                                    <a href="#" class="logo">
+                                        <img src="{{ asset('electro/img/logo.png') }}" alt="">
+                                    </a>
+                                @else
+                                    <a href="/" class="logo">
+                                        <img src="{{ asset('electro/img/logo.png') }}" alt="">
+                                    </a>
+                                @endif
+                            @endauth
                         </div>
                     </div>
                     <!-- /LOGO -->
@@ -83,7 +98,7 @@
                             <div>
                                 <a href="#">
                                     <i class="fa fa-heart-o"></i>
-                                    <span>Your Wishlist</span>
+                                    <span>Wishlist</span>
                                     <div class="qty">2</div>
                                 </a>
                             </div>
@@ -93,7 +108,7 @@
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
+                                    <span>Cart</span>
                                     <div class="qty">3</div>
                                 </a>
                                 <div class="cart-dropdown">

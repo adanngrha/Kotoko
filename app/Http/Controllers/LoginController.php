@@ -61,7 +61,7 @@ class LoginController extends Controller
                     return redirect('/');
                 } elseif ($user->hasRole('seller')) {
                     Auth::login($user);
-                    return redirect('/');
+                    return redirect('/products');
                 }
             }
             return redirect('login');

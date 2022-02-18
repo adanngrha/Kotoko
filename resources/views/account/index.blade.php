@@ -88,7 +88,6 @@
 													<td class="align-middle pl-4"><a href="account/edit" class="primary-btn">Edit Akun</a></td>
 												</tr>
 											</table>
-
 									</div>
 								</div>
 							</div>

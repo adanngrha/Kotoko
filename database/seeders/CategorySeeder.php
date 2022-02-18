@@ -21,22 +21,22 @@ class CategorySeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Ponsel',
-            'slug' => 'phone',
+            'name' => 'Smartphone',
+            'slug' => 'smartphone',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Aksesoris',
+            'name' => 'Accessories',
             'slug' => 'electronic-accessories',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Perangkat Keras',
+            'name' => 'Hardware',
             'slug' => 'hardware',
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Kamera',
+            'name' => 'Camera',
             'slug' => 'camera',
         ]);
     }

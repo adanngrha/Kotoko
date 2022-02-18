@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SellerController;
-use App\Models\Address;
+use App\Http\Controllers\ProductController;
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -22,24 +22,18 @@ use App\Models\Category;
 
 Route::get('/', function () {
 
+    $user = User::find(auth()->id());
     $products = Product::with('category')->get();
     $categories = Category::all();
 
     return view('index', [
         'title' => 'Welcome to Kotoko!',
+        'user' => $user,
         'products' => $products,
         'categories' => $categories,
     ]);
 
 })->name('home');
-
-//product-seller
-Route::get('/list-product', [SellerController::class, 'index']);
-Route::get('/add-product', [SellerController::class, 'createProduct']);
-Route::post('/add-product', [SellerController::class, 'storeProduct']);
-Route::get('/edit-product/{productId}', [SellerController::class, 'editProduct']);
-Route::post('/edit-product/{productId}', [SellerController::class, 'updateProduct']);
-Route::get('/delete-product/{productId}', [SellerController::class, 'destroyProduct']);
 
 //login regis
 Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -50,11 +44,11 @@ Route::post('/register', [LoginController::class, 'addRegister']);
 Route::middleware('auth')->group(function() {
 
     Route::get('/logout', [LoginController::class, 'logout']);
-    
+
 
     Route::middleware('isBuyer')->group(function() {
 
-        // Account
+        // Accounts
         Route::get('/account', [AccountController::class, 'index'])->name('account');
         Route::prefix('account')->group(function () {
             Route::get('/edit', [AccountController::class, 'showEdit'])->name('showEditAccount');
@@ -65,20 +59,17 @@ Route::middleware('auth')->group(function() {
             Route::post('/change-password', [AccountController::class, 'changePass'])->name('changePass');
         });
 
-        // Address
+        // Addresses
         Route::resource('/address', AddressController::class);
         Route::get('/address-main/{id}', [AddressController::class, 'main']);
 
     });
 
     Route::middleware('isSeller')->group(function() {
-        // Account
-        Route::resource('/account-seller', AccountController::class);
-        Route::get('/change-email', [EmailPasswordController::class, 'indexEmail']);
-        Route::get('/change-password', [EmailPasswordController::class, 'indexPass']);
-        Route::post('/change-email', [EmailPasswordController::class, 'changeEmail']);
-        Route::post('/change-password', [EmailPasswordController::class, 'changePass']);
-        
+
+        // Seller Products
+        Route::resource('/products', ProductController::class);
+
     });
 
     Route::middleware('isAdmin')->group(function () {
