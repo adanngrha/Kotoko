@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="product-body">
                                             <p class="product-category">{{ $product->category->name }}</p>
-                                            <h3 class="product-name"><a href="#">{{ $product->name }}</a></h3>
+                                            <h3 class="product-name"><a href="{{url('show-product/'.$product->id)}}">{{ $product->name }}</a></h3>
                                             <h4 class="product-price">Rp{{ number_format($product->price, 2) }} {{--<del
                                                     class="product-old-price">Rp990.00</del>--}}</h4>
                                             <div class="product-rating">

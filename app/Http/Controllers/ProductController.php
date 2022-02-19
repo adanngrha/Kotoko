@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -28,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories =  DB::table('categories')->get();
+        $categories = Category::all();
         return view('seller.product.addProduct', compact('categories'), [
             'title' => 'Add Product'
         ]);
@@ -76,7 +76,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $product = Product::where('id', $product->id)->first();
-        $categories =  DB::table('categories')->get();
+        $categories = Category::all();
 
         return view('seller.product.editProduct', compact('product', 'categories'), ['title' => 'Edit Product']);
     }

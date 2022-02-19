@@ -35,9 +35,9 @@
 													<td class="align-middle pl-4">{{ $user->username }}</td>
 												</tr>
 												<tr>
-                                                    @if ($user->name)
+                                                    @if ($user->profile->full_name)
                                                         <td class="text-right align-middle text-gray">Full Name</td>
-													    <td class="align-middle pl-4">{{ $user->name }}</td>
+													    <td class="align-middle pl-4">{{ $user->profile->full_name }}</td>
                                                     @else
                                                         <td class="text-right align-middle text-gray">Full Name</td>
 													    <td class="align-middle pl-4">Not filled yet</td>

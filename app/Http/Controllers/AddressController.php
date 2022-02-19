@@ -65,7 +65,7 @@ class AddressController extends Controller
 
         Address::create($validated);
 
-        return redirect('/address')->with('success', 'Alamat Berhasil Ditambahkan!');
+        return redirect('/address')->with('success', 'Address successfully added!');
     }
 
     /**
@@ -113,7 +113,7 @@ class AddressController extends Controller
 
         Address::where('id', $address->id)->update($validated);
 
-        return redirect('/address')->with('success', 'Alamat berhasil diedit!');
+        return redirect('/address')->with('success', 'Address successfully edited!');
     }
 
     /**
@@ -126,7 +126,7 @@ class AddressController extends Controller
     {
         Address::destroy($address->id);
 
-        return redirect('/address')->with('success', 'Post has been deleted.');
+        return redirect('/address')->with('success', 'Address has been deleted.');
     }
 
     public function main($id)
@@ -137,6 +137,6 @@ class AddressController extends Controller
 
         Address::where('id', $id)->update(['main' => '1']);
 
-        return redirect('/address')->with('success', 'Sukses menentukan alamat utama yang baru!');
+        return redirect('/address')->with('success', 'Successfully determined the new primary address!');
     }
 }

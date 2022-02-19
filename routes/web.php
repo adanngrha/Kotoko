@@ -5,6 +5,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -62,6 +63,9 @@ Route::middleware('auth')->group(function() {
         // Addresses
         Route::resource('/address', AddressController::class);
         Route::get('/address-main/{id}', [AddressController::class, 'main']);
+
+        //Cart
+        Route::get('/show-product/{productId}', [CartController::class, 'showProduct']);
 
     });
 
