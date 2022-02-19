@@ -35,6 +35,20 @@ Route::get('/', function () {
 
 })->name('home');
 
+Route::get('/search', function (Request $request) {
+
+    $user = User::find(auth()->id());
+    $products = Product::with('category')->get();
+    $categories = Category::all();
+
+    return view('search', [
+        'title' => 'Search Results',
+        'user' => $user,
+        'products' => $products,
+        'categories' => $categories,
+    ]);
+})->name('search');
+
 //login regis
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'addLogin']);

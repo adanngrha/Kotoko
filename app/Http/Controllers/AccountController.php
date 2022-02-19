@@ -16,7 +16,7 @@ class AccountController extends Controller
         $user = $users->find(auth()->id());
 
         return view('account.index', [
-            'title' => 'Akun Saya',
+            'title' => 'My Account',
             'user' => $user,
         ]);
     }
@@ -28,7 +28,7 @@ class AccountController extends Controller
         $user = $users->find(auth()->id());
 
         return view('account.edit', [
-            'title' => 'Edit Akun',
+            'title' => 'Editing My Account',
             'user' => $user,
         ]);
     }
@@ -45,7 +45,7 @@ class AccountController extends Controller
         Profile::where('user_id', auth()->id())
                     ->update($validated);
 
-        return redirect('/account')->with('success', 'Profil berhasil diedit!');
+        return redirect('/account')->with('success', 'Profile Successfully Edited.');
     }
     // Edit Account
 
@@ -53,7 +53,7 @@ class AccountController extends Controller
     public function indexEmail()
     {
         return view('account.change-email', [
-            'title' => 'Ubah Email'
+            'title' => 'Changing Email'
         ]);
     }
 
@@ -69,9 +69,9 @@ class AccountController extends Controller
             $user->update([
                 'email' => $validated['new_email'],
             ]);
-            return redirect('account')->with('success', 'Email diupdate!');;
+            return redirect('account')->with('success', 'Email Changed.');;
         }
-        return redirect('changeEmail')->with('failed', 'Email lama salah!');
+        return redirect('changeEmail')->with('failed', 'Old Email is Wrong!');
     }
     // Change Email
 
@@ -79,7 +79,7 @@ class AccountController extends Controller
     public function indexPass()
     {
         return view('account.change-password', [
-            'title' => 'Ubah Password'
+            'title' => 'Changing Password'
         ]);
     }
 
@@ -98,9 +98,9 @@ class AccountController extends Controller
                 'password' => Hash::make($validated['new_password']),
             ]);
 
-            return redirect('account')->with('success', 'Password diupdate!');
+            return redirect('account')->with('success', 'Password Updated.');
         }
-        return redirect('changePass')->with('failed', 'Password salah!');
+        return redirect('changePass')->with('failed', 'Password Wrong!');
     }
     // Change Password
 }

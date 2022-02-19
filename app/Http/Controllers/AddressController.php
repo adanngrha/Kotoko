@@ -18,7 +18,7 @@ class AddressController extends Controller
     {
         $user = User::find(auth()->id());
         return view ('address.index', [
-            'title' => 'Alamat Saya',
+            'title' => 'My Addresses',
             'addresses' => Address::where('user_id', $user->id)
             ->orderBy('main')
             ->get(),
@@ -33,7 +33,7 @@ class AddressController extends Controller
     public function create()
     {
         return view('address.add-address', [
-            'title' => 'Tambahkan Alamat Baru'
+            'title' => 'Add a New Address'
         ]);
     }
 
@@ -65,7 +65,7 @@ class AddressController extends Controller
 
         Address::create($validated);
 
-        return redirect('/address')->with('success', 'Alamat Berhasil Ditambahkan!');
+        return redirect('/address')->with('success', 'Address Successfully Added.');
     }
 
     /**
@@ -88,7 +88,7 @@ class AddressController extends Controller
     public function edit(Address $address)
     {
         return view('address.edit', [
-            'title' => "Edit Alamat Anda",
+            'title' => "Editing My Address",
             'address' => $address,
         ]);
     }
@@ -113,7 +113,7 @@ class AddressController extends Controller
 
         Address::where('id', $address->id)->update($validated);
 
-        return redirect('/address')->with('success', 'Alamat berhasil diedit!');
+        return redirect('/address')->with('success', 'Address Successfully Edited');
     }
 
     /**
@@ -126,7 +126,7 @@ class AddressController extends Controller
     {
         Address::destroy($address->id);
 
-        return redirect('/address')->with('success', 'Post has been deleted.');
+        return redirect('/address')->with('success', 'Address has been Deleted.');
     }
 
     public function main($id)
@@ -137,6 +137,6 @@ class AddressController extends Controller
 
         Address::where('id', $id)->update(['main' => '1']);
 
-        return redirect('/address')->with('success', 'Sukses menentukan alamat utama yang baru!');
+        return redirect('/address')->with('success', 'Successfully Set a New Main Address.');
     }
 }

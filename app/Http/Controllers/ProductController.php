@@ -30,7 +30,7 @@ class ProductController extends Controller
     {
         $categories =  DB::table('categories')->get();
         return view('seller.product.addProduct', compact('categories'), [
-            'title' => 'Add Product'
+            'title' => 'Add New Product'
         ]);
     }
 
@@ -53,7 +53,7 @@ class ProductController extends Controller
 
         Product::create($validated);
 
-        return redirect('/products')->with('status', 'Product successfully added.');
+        return redirect('/products')->with('status', 'Product Successfully Added.');
     }
 
     /**
@@ -78,7 +78,7 @@ class ProductController extends Controller
         $product = Product::where('id', $product->id)->first();
         $categories =  DB::table('categories')->get();
 
-        return view('seller.product.editProduct', compact('product', 'categories'), ['title' => 'Edit Product']);
+        return view('seller.product.editProduct', compact('product', 'categories'), ['title' => 'Editing a Product']);
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
 
         Product::where('id', $product->id)->update($validated);
 
-        return redirect('/products')->with('status', 'Product successfully edited.');
+        return redirect('/products')->with('status', 'Product Successfully Edited.');
     }
 
     /**
@@ -114,6 +114,6 @@ class ProductController extends Controller
     {
         Product::destroy($product->id);
 
-        return redirect('/products')->with('status', 'Product successfully deleted.');
+        return redirect('/products')->with('status', 'Product Successfully Deleted.');
     }
 }
