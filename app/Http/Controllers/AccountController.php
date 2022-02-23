@@ -28,7 +28,8 @@ class AccountController extends Controller
         $user = $users->find(auth()->id());
 
         return view('account.edit', [
-            'title' => 'Edit Account',
+            'title' => 'Editing My Account',
+
             'user' => $user,
         ]);
     }
@@ -53,7 +54,7 @@ class AccountController extends Controller
     public function indexEmail()
     {
         return view('account.change-email', [
-            'title' => 'Ubah Email'
+            'title' => 'Changing Email'
         ]);
     }
 
@@ -69,17 +70,18 @@ class AccountController extends Controller
             $user->update([
                 'email' => $validated['new_email'],
             ]);
+          
             return redirect('account')->with('success', 'Email successfully updated!');;
         }
-        return redirect('changeEmail')->with('failed', 'The old email is wrong!');
-    }
+        return redirect('changeEmail')->with('failed', 'Old email is wrong!');
+}
     // Change Email
 
     // Change Password
     public function indexPass()
     {
         return view('account.change-password', [
-            'title' => 'Change Password'
+            'title' => 'Changing Password'
         ]);
     }
 
@@ -97,10 +99,9 @@ class AccountController extends Controller
             $user->update([
                 'password' => Hash::make($validated['new_password']),
             ]);
-
             return redirect('account')->with('success', 'Password successfully updated!');
         }
-        return redirect('changePass')->with('failed', 'The password is wrong!');
+        return redirect('changePass')->with('failed', 'Password is wrong!');
     }
     // Change Password
 }

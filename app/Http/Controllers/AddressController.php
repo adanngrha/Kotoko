@@ -18,7 +18,7 @@ class AddressController extends Controller
     {
         $user = User::find(auth()->id());
         return view ('address.index', [
-            'title' => 'Alamat Saya',
+            'title' => 'My Addresses',
             'addresses' => Address::where('user_id', $user->id)
             ->orderBy('main')
             ->get(),
@@ -33,7 +33,7 @@ class AddressController extends Controller
     public function create()
     {
         return view('address.add-address', [
-            'title' => 'Tambahkan Alamat Baru'
+            'title' => 'Add a New Address'
         ]);
     }
 
@@ -88,7 +88,7 @@ class AddressController extends Controller
     public function edit(Address $address)
     {
         return view('address.edit', [
-            'title' => "Edit Alamat Anda",
+            'title' => "Editing My Address",
             'address' => $address,
         ]);
     }

@@ -470,6 +470,7 @@ textarea.input {
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: #FFF;
+    border-bottom: 3px solid #297F87;
 }
 
 .header-logo {
@@ -647,7 +648,7 @@ textarea.input {
 #navigation {
     background: #FFF;
     border-bottom: 2px solid #E4E7ED;
-    border-top: 3px solid #297F87;
+    /* border-top: 3px solid #297F87; */
 }
 
 /*----------------------------*\
