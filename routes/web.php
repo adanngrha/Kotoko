@@ -69,7 +69,6 @@ Route::middleware('auth')->group(function() {
 
         //Cart
         Route::post('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
-        Route::get('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
 
 
     });

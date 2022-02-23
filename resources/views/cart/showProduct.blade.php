@@ -113,7 +113,7 @@
                     </div> --}}
 
                     <div class="add-to-cart">
-                        <form action="{{url('show-product/add-product/'.$product->id)}}" method="POST">
+                        <form action="/show-product/add-product/'.{{$product->id}}" method="POST">
                         @csrf
 
                             <div class="qty-label">
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                             <button class="add-to-cart-btn" type="submit"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </form>
+                        </form>
                     </div>
 
                     <ul class="product-btns">
