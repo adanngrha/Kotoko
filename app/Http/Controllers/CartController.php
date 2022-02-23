@@ -19,7 +19,7 @@ class CartController extends Controller
     public function addProduct(Request $request, $productId) {
         $user=request()->user();
 
-        $user->carts()->attach($productID, ['quantity' => $request->quantity]);
+        $user->cart()->attach($productId, ['quantity' => $request->quantity]);
 
         return redirect()->back();
     }

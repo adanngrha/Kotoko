@@ -55,8 +55,8 @@ class User extends Authenticatable
 
     public function cart ()
     {
-        return $this->hasMany(Cart::class);
-        //return $this->belongsToMany(Product::class, 'user_id', 'product_id')->withPivot('quantity');
+        // return $this->hasMany(Cart::class);
+        return $this->belongsToMany(Product::class, 'carts', 'user_id', 'product_id')->withPivot('quantity');
     }
 
     public function review ()
