@@ -14,4 +14,16 @@ class CartController extends Controller
         $categories = Category::all();
         return view('cart.showProduct', compact('product', 'products', 'categories'), ['title'=>'Product']);
     }
+
+    public function addProduct(Request $request, $productId) {
+        $user=request()->user();
+
+        $user->carts()->attach($productID, ['quantity' => $request->quantity]);
+
+        return redirect()->back();
+    }
+
+    public function showCart() {
+        
+    }
 }

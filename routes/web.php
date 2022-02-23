@@ -42,6 +42,9 @@ Route::post('/login', [LoginController::class, 'addLogin']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'addRegister']);
 
+// show product
+Route::get('/show-product/{productId}', [CartController::class, 'showProduct']);
+
 Route::middleware('auth')->group(function() {
 
     Route::get('/logout', [LoginController::class, 'logout']);
@@ -65,7 +68,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/address-main/{id}', [AddressController::class, 'main']);
 
         //Cart
-        Route::get('/show-product/{productId}', [CartController::class, 'showProduct']);
+        Route::post('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
+        Route::get('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
+
 
     });
 
