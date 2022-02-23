@@ -69,6 +69,8 @@ Route::middleware('auth')->group(function() {
 
         //Cart
         Route::post('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
+        Route::get('view-cart', [CartController::class, 'showCart']);
+        Route::delete('view-cart/{cartId}', [CartController::class, 'deleteCart']);
 
 
     });

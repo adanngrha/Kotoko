@@ -69,7 +69,7 @@
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="/" class="logo">
-                                <img src="electro/img/logo.png" alt="">
+                                <img src="{{ asset('electro/img/logo.png') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
 
                                         <div class="product-widget">
                                             <div class="product-img">
-                                                <img src="electro/img/product02.png" alt="">
+                                                <img src="{{ asset('electro/img/product02.png') }}" alt="">
                                             </div>
                                             <div class="product-body">
                                                 <h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -140,7 +140,7 @@
                                         <h5>SUBTOTAL: $2940.00</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#">View Cart</a>
+                                        <a href="{{url('view-cart')}}">View Cart</a>
                                         <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>

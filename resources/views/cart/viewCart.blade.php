@@ -18,17 +18,17 @@
             </div>
             @endif
             <div id="my-profile">
-                <h3>Keranjang Belanja</h3>
+                <h3>Shopping Cart</h3>
                 <hr class="mb-0">
                 <!-- Product -->
                 <table class="table table-borderless">
                     <thead>
                         <tr class="hr text-center">
-                            <td class="text-left" colspan="2">Produk</td>
-                            <td class="text-gray">Harga Satuan</td>
-                            <td class="text-gray">Kuantitas</td>
-                            <td class="text-gray">Total Harga</td>
-                            <td class="text-gray">Aksi</td>
+                            <td class="text-left" colspan="2">Product</td>
+                            <td class="text-gray">Unit Price</td>
+                            <td class="text-gray">Quantity</td>
+                            <td class="text-gray">Total Price</td>
+                            <td class="text-gray">Action</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,7 @@
                             <td width="60">
                                 <a href="order-details.html" class="no-hover">
 
-                                    {{-- <img src="{{ asset('img-product-upload/'.$cart->product_images[0]->picture) }}" width="100" alt=""> --}}
+                                    <img src="https://source.unsplash.com/300x300/?{{ $cart->category->slug }}" width="100" alt="">
                                 </a>
                             </td>
                             <td class="pt-5 text-left" width="400">{{ $cart->name }}</td>
@@ -59,10 +59,10 @@
                                 @csrf
                                 <td class="align-middle">{{-- <input type="submit" class="btn btn-outline-danger my-1" value="Update"> --}}
                             </form>
-                            <form action="/viewcart/{{$cart->id}}" method="POST">
+                            <form action="/view-cart/{{$cart->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                    <input type="submit" class="btn btn-danger my-1" onclick="return confirm('Are you sure?')" value="Hapus"></td>
+                                    <input type="submit" class="btn btn-danger my-1" onclick="return confirm('Are you sure?')" value="Delete"></td>
                             </form>
                         </tr>
                         <?php $total+=$p; $i++;  ?>
@@ -74,7 +74,7 @@
                 <div class="d-flex flex-col align-items-end mt-4">
                     <table class="table table-borderless">
                         <tr>
-                            <td class="align-middle text-right">Total {{ sizeof($carts) }} Produk :</td>
+                            <td class="align-middle text-right">Total {{ sizeof($carts) }} Product :</td>
                             <td class="align-middle text-right" width="200">
                                 <h3 class="d-inline-block text-primary m-0">Rp{{$total}}</h3>
                             </td>

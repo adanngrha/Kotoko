@@ -121,8 +121,11 @@
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                cart</button>
+                                            <form action="{{url('show-product/add-product/'.$product->id)}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" value="1" class="form-control" name="quantity">
+                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                            </form>
                                         </div>
                                     </div>
                                     @endforeach

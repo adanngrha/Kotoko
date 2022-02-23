@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@section('navigation')
-    @include('partials.navigation')
-@endsection
-
 @section('content')
 
 <!-- BREADCRUMB -->
@@ -14,8 +10,8 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">All Categories</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">All Categories</a></li>
                     <li><a href="#">{{ $product->category->name }}</a></li>
                     <li class="active">{{ $product->name }}</li>
                 </ul>
@@ -113,7 +109,7 @@
                     </div> --}}
 
                     <div class="add-to-cart">
-                        <form action="/show-product/add-product/'.{{$product->id}}" method="POST">
+                        <form action="{{url('show-product/add-product/'.$product->id)}}" method="POST">
                         @csrf
 
                             <div class="qty-label">
