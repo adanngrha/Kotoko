@@ -5,6 +5,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -70,6 +71,9 @@ Route::post('/login', [LoginController::class, 'addLogin']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'addRegister']);
 
+// show product
+Route::get('/show-product/{productId}', [CartController::class, 'showProduct']);
+
 Route::middleware('auth')->group(function() {
 
     Route::get('/logout', [LoginController::class, 'logout']);
@@ -91,6 +95,12 @@ Route::middleware('auth')->group(function() {
         // Addresses
         Route::resource('/address', AddressController::class);
         Route::get('/address-main/{id}', [AddressController::class, 'main']);
+
+        //Cart
+        Route::post('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
+        Route::get('view-cart', [CartController::class, 'showCart']);
+        Route::delete('view-cart/{cartId}', [CartController::class, 'deleteCart']);
+
 
     });
 

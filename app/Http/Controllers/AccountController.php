@@ -29,6 +29,7 @@ class AccountController extends Controller
 
         return view('account.edit', [
             'title' => 'Editing My Account',
+
             'user' => $user,
         ]);
     }
@@ -45,7 +46,7 @@ class AccountController extends Controller
         Profile::where('user_id', auth()->id())
                     ->update($validated);
 
-        return redirect('/account')->with('success', 'Profile Successfully Edited.');
+        return redirect('/account')->with('success', 'Profile successfully edited!');
     }
     // Edit Account
 
@@ -69,10 +70,11 @@ class AccountController extends Controller
             $user->update([
                 'email' => $validated['new_email'],
             ]);
-            return redirect('account')->with('success', 'Email Changed.');;
+          
+            return redirect('account')->with('success', 'Email successfully updated!');;
         }
-        return redirect('changeEmail')->with('failed', 'Old Email is Wrong!');
-    }
+        return redirect('changeEmail')->with('failed', 'Old email is wrong!');
+}
     // Change Email
 
     // Change Password
@@ -97,10 +99,9 @@ class AccountController extends Controller
             $user->update([
                 'password' => Hash::make($validated['new_password']),
             ]);
-
-            return redirect('account')->with('success', 'Password Updated.');
+            return redirect('account')->with('success', 'Password successfully updated!');
         }
-        return redirect('changePass')->with('failed', 'Password Wrong!');
+        return redirect('changePass')->with('failed', 'Password is wrong!');
     }
     // Change Password
 }

@@ -56,11 +56,11 @@
                                     <td class="align-middle">Rp{{ $product->price }}</td>
                                     <td class="align-middle">{{ $product->location }}</td>
                                     <td class="align-middle">
-                                        <a class="mr-3" href="{{ url('products/' . $product->id . '/edit') }}"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah</a>
+                                        <button class="mr-3" href="{{ url('products/' . $product->id . '/edit') }}"><i class="fa fa-fw fa-pencil-square-o"></i> Ubah</button>
                                         <form action="{{ url('products/'. $product->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button onclick="return confirm('Are you sure want to delete the product?')">
+                                            <button class="mt-2" onclick="return confirm('Are you sure want to delete the product?')">
                                                 <i class="fa fa-fw fa-trash-o"></i> Hapus
                                             </button>
                                         </form>
