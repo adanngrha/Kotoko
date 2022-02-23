@@ -50,12 +50,12 @@
                     <div class="header-search">
                         <form action="/search">
                             <select class="input-select" name="category">
-                                <option value="All Categories">All Categories</option>
+                                <option value="all">All Categories</option>
                                 @foreach ($categories as $category)
                                 <option value="{{ $category->slug }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
-                            <input class="input" type="text" placeholder="Search here" name="search" value="{{ request('search') }}">
+                            <input class="input" type="text" placeholder="Search here" name="search" value="{{ request('search') ? request('search') : old('search')}}">
                             <button class="search-btn" type="submit">Search</button>
                         </form>
                     </div>

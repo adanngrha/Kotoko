@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,12 +38,26 @@ Route::get('/', function () {
 
 Route::get('/search', function (Request $request) {
 
+    $title = '';
+
+    if ($request->category == 'all')
+    {
+        $products = Product::where('name', 'like', '%' . $request->search . '%')->with('category')->get();
+        $title = " All Categories";
+    }
+        else
+    {
+        $category_id = Category::firstWhere('slug', $request->category);
+        $products = Product::where('name', 'like', '%' . $request->search . '%')->
+                            where('id', $category_id->id)->with('category')->get();
+        $title = $category_id->name;
+    }
+
     $user = User::find(auth()->id());
-    $products = Product::with('category')->get();
     $categories = Category::all();
 
     return view('search', [
-        'title' => 'Search Results',
+        'title' => 'Search Results in ' . $title ,
         'user' => $user,
         'products' => $products,
         'categories' => $categories,
