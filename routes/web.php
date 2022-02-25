@@ -6,6 +6,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SearchController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -36,7 +37,7 @@ Route::get('/', function () {
     ]);
 
 })->name('home');
-
+//search
 Route::get('/search', function (Request $request) {
 
     $title = '';
@@ -50,7 +51,7 @@ Route::get('/search', function (Request $request) {
     {
         $category_id = Category::firstWhere('slug', $request->category);
         $products = Product::where('name', 'like', '%' . $request->search . '%')->
-                            where('id', $category_id->id)->with('category')->get();
+                            where('category_id', $category_id->id)->with('category')->get();
         $title = $category_id->name;
     }
 
@@ -64,6 +65,8 @@ Route::get('/search', function (Request $request) {
         'categories' => $categories,
     ]);
 })->name('search');
+
+Route::get('/show-by-category/{categoryId}', [SearchController::class, 'showByCategory']);
 
 //login regis
 Route::get('/login', [LoginController::class, 'login'])->name('login');

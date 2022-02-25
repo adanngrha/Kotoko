@@ -49,6 +49,7 @@
                 <div class="col-md-6">
                     <div class="header-search">
                         <form action="/search">
+                            @csrf
                             <select class="input-select" name="category">
                                 <option value="all">All Categories</option>
                                 @foreach ($categories as $category)

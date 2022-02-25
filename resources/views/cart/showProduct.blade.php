@@ -421,10 +421,11 @@
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <form action="{{url('add-product/'.$pdt->id)}}" method="POST">
+                            <form action="{{url('show-product/add-product/'.$pdt->id)}}" method="POST">
                                 @csrf
-                            <button class="add-to-cart-btn" type="submit"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </form>
+                                <input type="hidden" value="1" class="form-control" name="quantity">
+                                <button class="add-to-cart-btn" type="submit"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            </form>
                         </div>
                     </div>
                 </div>

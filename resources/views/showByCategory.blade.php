@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('navigation')
+    @include('partials.navigation')
+@endsection
 
 @section('content')
 
