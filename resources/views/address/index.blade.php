@@ -55,7 +55,7 @@
                                         <button><a href="/address/{{ $address->id }}/edit"><i class="fa fa-fw fa-pencil-square-o"></i> Edit</a></button>
                                     </div>
                                 </div>
-                                
+
                                 @else
                                 <div class="row">
                                     <div class="col-md-8">
@@ -88,7 +88,7 @@
                                                 <td colspan="2"><a href="/address-main/{{ $address->id }}" class="primary-btn mt-5">Set to Main Address</a></td>
                                             </form>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 @endif

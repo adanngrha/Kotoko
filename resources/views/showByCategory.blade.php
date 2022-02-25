@@ -26,7 +26,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <!-- product -->
-                    @foreach ($products->sortByDesc('created_at') as $product)
+                    @foreach( $products->sortByDesc('created_at') as $product )
                     <div class="col-md-3">
                         <div class="product">
                             <div class="product-img">

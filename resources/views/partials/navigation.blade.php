@@ -6,9 +6,10 @@
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
-                    <li class=""><a href="/">Home</a></li>
                     @foreach ($categories as $category)
-                        <li><a href="{{url('show-by-category/'.$category->id)}}">{{ $category->name }}</a></li>
+                        <li><a href="/category/{{ $category->slug }}" class="@if (Request::is('category/{{ $category->slug }}'))
+                            'active'
+                        @endif">{{ $category->name }}</a></li>
                     @endforeach
                 </ul>
                 <!-- /NAV -->

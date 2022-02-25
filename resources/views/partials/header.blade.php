@@ -32,7 +32,7 @@
     <div id="header">
         <!-- container -->
 
-        @if (request()->routeIs('home') || request()->routeIs('search'))
+        @if (request()->routeIs('home') || request()->routeIs('search') || request()->routeIs('category'))
         <div class="container">
             <!-- row -->
             <div class="row">
@@ -40,7 +40,7 @@
                 <div class="col-md-3">
                     <div class="header-logo">
                         <a href="/" class="logo">
-                            <img src="electro/img/logo.png" alt="">
+                            <img src="{{ asset("electro/img/logo.png") }}" alt="">
                         </a>
                     </div>
                 </div>
