@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -36,9 +37,14 @@ class CartController extends Controller
 
     public function deleteCart($cartId) {
         $user =request()->user();
-        $cart = Cart::where('id', $cartId);
+        $cart = Cart::where('id', $cartId)->first();
 
         $user->cart()->detach($cart->product->id);
         return redirect()->back()->with('status', 'Cart data successfully delete!');
+    }
+
+    public function editCart(Request $request, $cartId) {
+        $cart = Cart::where('id', $cartId)->update(['quantity' => $request->quantity]);
+        return redirect()->back()->with('status', 'Data cart successfully update!');
     }
 }

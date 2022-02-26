@@ -32,7 +32,7 @@
     <div id="header">
         <!-- container -->
 
-        @if (request()->routeIs('home') || request()->routeIs('search') || request()->routeIs('category'))
+        @if (request()->routeIs('home') || request()->routeIs('search') || request()->routeIs('category') || request()->routeIs('product')) 
         <div class="container">
             <!-- row -->
             <div class="row">

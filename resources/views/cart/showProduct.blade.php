@@ -12,7 +12,7 @@
                 <ul class="breadcrumb-tree">
                     <li><a href="/">Home</a></li>
                     <li><a href="/">All Categories</a></li>
-                    <li><a href="#">{{ $product->category->name }}</a></li>
+                    <li><a href="/category/{{ $product->category->slug }}">{{ $product->category->name }}</a></li>
                     <li class="active">{{ $product->name }}</li>
                 </ul>
             </div>
@@ -115,7 +115,7 @@
                             <div class="qty-label">
                                 Qty
                                 <div class="input-number">
-                                    <input type="number" value="1" class="form-control" name="quantity">
+                                    <input type="number" value="1" class="form-control" name="quantity" >
                                     <span class="qty-up">+</span>
                                     <span class="qty-down">-</span>
                                 </div>
