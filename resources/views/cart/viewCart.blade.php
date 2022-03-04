@@ -37,12 +37,11 @@
                         <tr class="hr text-center">
                             <td width="60">
                                 <a href="order-details.html" class="no-hover">
-
                                     <img src="https://source.unsplash.com/300x300/?{{ $cart->category->slug }}" width="100" alt="">
                                 </a>
                             </td>
-                            <td class="pt-5 text-left" width="400">{{ $cart->name }}</td>
-                            <td class="align-middle">Rp{{ $pr=$cart->price }}</td>
+                            <td class="align-middle" width="400">{{ $cart->name }}</td>
+                            <td class="align-middle">IDR {{ number_format($pr=$cart->price, 2) }}</td>
                             <td class="align-middle" width="100">
                                 <div class="add-to-cart">
                                     <div class="qty-label">
@@ -54,7 +53,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">Rp{{$p = $pr * $qty}}</td>
+                            <td class="align-middle">IDR {{ number_format($p = $pr * $qty, 2) }}</td>
                             <form action="/viewcart/edit/{{$cart->id}}" method="POST">
                                 @csrf
                                 <td class="align-middle">{{-- <input type="submit" class="btn btn-outline-danger my-1" value="Update"> --}}
@@ -76,7 +75,7 @@
                         <tr>
                             <td class="align-middle text-right">Total {{ sizeof($carts) }} Product :</td>
                             <td class="align-middle text-right" width="200">
-                                <h3 class="d-inline-block text-primary m-0">Rp{{$total}}</h3>
+                                <h3 class="d-inline-block text-primary m-0">IDR {{ number_format($total, 2) }}</h3>
                             </td>
                         </tr>
                     </table>

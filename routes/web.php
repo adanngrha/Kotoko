@@ -77,6 +77,9 @@ Route::middleware('auth')->group(function() {
         Route::get('view-cart', [CartController::class, 'showCart']);
         Route::delete('view-cart/{cartId}', [CartController::class, 'deleteCart']);
 
+        // Checkout
+        
+
     });
 
     Route::middleware('isSeller')->group(function() {

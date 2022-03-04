@@ -88,7 +88,7 @@
                         <a class="review-link" href="#">10 Review(s) | Add your review</a>
                     </div>
                     <div>
-                        <h3 class="product-price">Rp{{ $product->price }}</h3>
+                        <h3 class="product-price">IDR {{ number_format($product->price, 2) }}</h3>
                         <span class="product-available">In Stock</span>
                     </div>
                     <p>{{ $product->description }}</p>
