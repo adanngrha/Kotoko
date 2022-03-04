@@ -81,6 +81,9 @@ Route::middleware('auth')->group(function() {
         Route::get('checkout', [CheckoutController::class, 'showCheckout']);
         Route::get('order', [CheckoutController::class, 'order']);
 
+        // Checkout
+        
+
     });
 
     Route::middleware('isSeller')->group(function() {
