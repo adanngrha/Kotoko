@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FilterController;
+use App\Http\Controllers\CheckoutController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -49,7 +50,7 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'addRegister']);
 
 // Show Product
-Route::get('/show-product/{productId}', [CartController::class, 'showProduct']);
+Route::get('/show-product/{productId}', [CartController::class, 'showProduct'])->name('product');
 
 Route::middleware('auth')->group(function() {
 
@@ -76,6 +77,9 @@ Route::middleware('auth')->group(function() {
         Route::post('show-product/add-product/{productId}', [CartController::class, 'addProduct']);
         Route::get('view-cart', [CartController::class, 'showCart']);
         Route::delete('view-cart/{cartId}', [CartController::class, 'deleteCart']);
+        Route::put('view-cart/edit/{cartId}', [CartController::class, 'editCart']);
+        Route::get('checkout', [CheckoutController::class, 'showCheckout']);
+        Route::get('order', [CheckoutController::class, 'order']);
 
         // Checkout
         
