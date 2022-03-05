@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Cart;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -16,7 +14,7 @@ class CartController extends Controller
         $products = Product::all();
         $categories = Category::all();
         $name = $product->name;
-        return view('cart.showProduct', compact('product', 'products', 'categories'), ['title'=>$name]);
+        return view('product.index', compact('product', 'products', 'categories'), ['title'=>$name]);
     }
 
     public function addProduct(Request $request, $productId) {

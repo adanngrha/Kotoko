@@ -82,7 +82,7 @@
                     </table>
                     <div class="d-flex flex-row align-items-center">
                         {{-- <a href="" class="primary-btn-o mx-2">Update</a> --}}
-                        <a href="/checkout" class="primary-btn mx-2">Checkout</a>
+                        <a href="/place-order" class="primary-btn mx-2">Place Order</a>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
@@ -78,11 +79,19 @@ Route::middleware('auth')->group(function() {
         Route::get('view-cart', [CartController::class, 'showCart']);
         Route::delete('view-cart/{cartId}', [CartController::class, 'deleteCart']);
         Route::put('view-cart/edit/{cartId}', [CartController::class, 'editCart']);
-        Route::get('checkout', [CheckoutController::class, 'showCheckout']);
-        Route::get('order', [CheckoutController::class, 'order']);
+
+        // Orders
+        Route::resource('/orders', OrderController::class);
 
         // Checkout
-        
+        Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
+
+        // Wishlist
+        Route::get('/wishlist', function() {
+            return view('wishlist.index', [
+                'title' => 'My Favourites',
+            ]);
+        });
 
     });
 
