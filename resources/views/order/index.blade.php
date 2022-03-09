@@ -18,7 +18,7 @@
 					<!-- STORE -->
 					<div class="col-md-9">
 						<div id="my-profile">
-							<h3>Pesanan Saya</h3>
+							<h3>My Orders</h3>
 							<hr>
 							<!-- row -->
 							<div class="row">
@@ -27,12 +27,12 @@
 									<div class="section-title float-left">
 										<div class="section-nav">
 											<ul class="section-tab-nav tab-nav">
-												<li class="active"><a data-toggle="tab" href="#all">Semua</a></li>
-												<li><a data-toggle="tab" href="#tab1">Belum Bayar</a></li>
-												<li><a data-toggle="tab" href="#tab1">Dikemas</a></li>
-												<li><a data-toggle="tab" href="#tab1">Dikirim</a></li>
-												<li><a data-toggle="tab" href="#tab1">Selesai</a></li>
-												<li><a data-toggle="tab" href="#tab1">Dibatalkan</a></li>
+												<li class="active"><a data-toggle="tab" href="#all">All</a></li>
+												<li><a data-toggle="tab" href="#tab1">Not yet paid</a></li>
+												<li><a data-toggle="tab" href="#tab1">Packed</a></li>
+												<li><a data-toggle="tab" href="#tab1">Sent</a></li>
+												<li><a data-toggle="tab" href="#tab1">Done</a></li>
+												<li><a data-toggle="tab" href="#tab1">Cancelled</a></li>
 											</ul>
 										</div>
 									</div>
