@@ -9,9 +9,11 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\WishlistController;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
 /*
@@ -87,11 +89,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/checkout', [CheckoutController::class, 'showCheckout']);
 
         // Wishlist
-        Route::get('/wishlist', function() {
-            return view('wishlist.index', [
-                'title' => 'My Favourites',
-            ]);
-        });
+        Route::get('/wishlist', [WishlistController::class, 'index']);
+        Route::get('/wishlist/{id}', [WishlistController::class, 'add']);
+        Route::get('/wishlist/delete/{id}', [WishlistController::class, 'delete']);
 
     });
 

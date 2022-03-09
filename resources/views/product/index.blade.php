@@ -123,7 +123,7 @@
                         </form>
                     </div>
                     <ul class="product-btns">
-                        <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+                        <li><a href="/wishlist/{{ $product->id }}"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
                         {{-- <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li> --}}
                     </ul>
 

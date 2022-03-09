@@ -32,7 +32,7 @@
     <div id="header">
         <!-- container -->
 
-        @if (request()->routeIs('home') || request()->routeIs('search') || request()->routeIs('category') || request()->routeIs('product')) 
+        @if (request()->routeIs('home') || request()->routeIs('search') || request()->routeIs('category') || request()->routeIs('product'))
         <div class="container">
             <!-- row -->
             <div class="row">
@@ -68,7 +68,7 @@
                         <div class="header-ctn">
                             <!-- Wishlist -->
                             <div>
-                                <a href="#">
+                                <a href="/wishlist">
                                     <i class="fa fa-heart-o"></i>
                                     <span>Wishlist</span>
                                     <div class="qty">2</div>
