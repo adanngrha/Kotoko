@@ -46,7 +46,7 @@
                                 <div class="add-to-cart">
                                     <div class="qty-label">
                                         <div class="input-number">
-                                            <input type="number" class="form-control" name="quantity" value="{{$qty=$cart->pivot->quantity}}" min="1" max="">
+                                            <input type="number" class="form-control" name="quantity" value="{{ $qty = $cart->pivot->quantity }}" min="1" max="">
                                             <span class="qty-up">+</span>
                                             <span class="qty-down">-</span>
                                         </div>
@@ -54,12 +54,12 @@
                                 </div>
                             </td>
                             <td class="align-middle">IDR {{ number_format($p = $pr * $qty, 2) }}</td>
-                            <form action="/viewcart/edit/{{$cart->id}}" method="POST">
+                            <form action="/viewcart/edit/{{ $cart->id }}" method="POST">
                                 @csrf
                                 @method('put')
                                 <td class="align-middle"><input type="submit" class="btn btn-outline-danger my-1" value="Update">
                             </form>
-                            <form action="view-cart/{{$cart->id}}" method="POST">
+                            <form action="view-cart/{{ $cart->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                     <input type="submit" class="btn btn-danger my-1" onclick="return confirm('Are you sure?')" value="Delete"></td>
