@@ -73,9 +73,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Wishlist::class);
     }
-
-    public function ordered_product()
-    {
-        return $this->hasMany(OrderedProduct::class);
-    }
 }

@@ -32,7 +32,7 @@ use App\Http\Controllers\WishlistController;
 Route::get('/', function () {
 
     $products = Product::with('category')->get();
-    
+
     return view('index', [
         'title' => 'Welcome to Kotoko!',
         'products' => $products,

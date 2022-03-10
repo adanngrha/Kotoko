@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -26,8 +28,14 @@ class OrderController extends Controller
      */
     public function create()
     {
-        // insert to table orders and ordered_products, delete all records in carts table
-        
+        $user = request()->user();
+        $user->load('cart');
+        $carts = $user->cart;
+
+        return view('order.create', [
+            'title' => 'Create Order',
+            'carts' => $carts,
+        ]);
     }
 
     /**
@@ -38,7 +46,14 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        // insert to table orders and ordered_products, delete all records in carts table
+        // form blade we take total, and subtotal
+        $user = User::find(auth()->id());
+        $unique_id = strtoupper(uniqid());
 
+        Cart::where('user_id', $user->id)->delete();
+
+        return dd($unique_id);
     }
 
     /**
