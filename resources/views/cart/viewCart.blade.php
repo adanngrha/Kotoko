@@ -17,6 +17,8 @@
                 </div>
             </div>
             @endif
+            <form action="/orders" method="post">
+            @csrf
             <div id="my-profile">
                 <h3>Shopping Cart</h3>
                 <hr class="mb-0">
@@ -82,10 +84,12 @@
                     </table>
                     <div class="d-flex flex-row align-items-center">
                         {{-- <a href="" class="primary-btn-o mx-2">Update</a> --}}
-                        <a href="/place-order" class="primary-btn mx-2">Place Order</a>
+                        <button class="primary-btn mx-2" type="submit">Place Order</button>
+                        {{-- <a href="/place-order">Place Order</a> --}}
                     </div>
                 </div>
             </div>
+            </form>
         </div>
         <!-- /row -->
     </div>

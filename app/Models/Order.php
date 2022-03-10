@@ -26,9 +26,9 @@ class Order extends Model
         return $this->hasMany(OrderedProduct::class);
     }
 
-    public function transaction ()
+    public function status ()
     {
-        return $this->hasOne(Transaction::class);
+        return $this->hasOne(Status::class);
     }
 
     public function courier ()

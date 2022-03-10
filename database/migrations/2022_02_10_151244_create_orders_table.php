@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('courier_id');
             $table->foreignId('service_id');
             $table->foreignId('payment_id');
+            $table->foreignId('status_id');
             $table->string('message');
             $table->integer('total');
             $table->timestamps();

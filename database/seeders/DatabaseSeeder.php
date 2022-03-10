@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             RoleSeeder::class,
+            StatusSeeder::class,
         ]);
 
         $seller = User::create([

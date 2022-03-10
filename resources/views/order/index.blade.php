@@ -14,7 +14,6 @@
 						<!-- /aside Widget -->
 					</div>
 					<!-- /ASIDE -->
-
 					<!-- STORE -->
 					<div class="col-md-9">
 						<div id="my-profile">
@@ -29,9 +28,10 @@
 											<ul class="section-tab-nav tab-nav">
 												<li class="active"><a data-toggle="tab" href="#all">All</a></li>
 												<li><a data-toggle="tab" href="#tab1">Not yet paid</a></li>
+                                                <li><a data-toggle="tab" href="#tab1">Paid</a></li>
 												<li><a data-toggle="tab" href="#tab1">Packed</a></li>
 												<li><a data-toggle="tab" href="#tab1">Sent</a></li>
-												<li><a data-toggle="tab" href="#tab1">Done</a></li>
+												<li><a data-toggle="tab" href="#tab1">Received</a></li>
 												<li><a data-toggle="tab" href="#tab1">Cancelled</a></li>
 											</ul>
 										</div>

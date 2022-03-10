@@ -15,15 +15,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id');
-            $table->enum('status', [
-                'DIPESAN',
-                'DIKIRIM',
-                'DIBATALKAN',
-                'DITERIMA',
-                'DIBAYAR',
-                'DINILAI',
-            ]);
+            $table->string('status');
             $table->timestamps();
         });
     }

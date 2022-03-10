@@ -26,7 +26,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        // insert to table orders and ordered_products, delete all records in carts table
+        
     }
 
     /**
@@ -37,7 +38,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

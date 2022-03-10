@@ -31,23 +31,42 @@
     <!-- MAIN HEADER -->
     <div id="header">
         <!-- container -->
-
-        @if (request()->routeIs('home') || request()->routeIs('search') || request()->routeIs('category') || request()->routeIs('product'))
         <div class="container">
             <!-- row -->
             <div class="row">
                 <!-- LOGO -->
-                <div class="col-md-3">
-                    <div class="header-logo">
-                        <a href="/" class="logo">
-                            <img src="{{ asset("electro/img/logo.png") }}" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!-- /LOGO -->
+                        <div class="col-md-3">
+                            <div class="header-logo" style="justify-content: center">
+                                @guest
+                                <a href="/" class="logo">
+                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
+                                </a>
+                                @endguest
+                                @auth
+                                @if(Auth::user()->hasRole('seller') || Auth::user()->hasRole('admin'))
+                                <a href="#" class="logo">
+                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
+                                </a>
+                                @else
+                                <a href="/" class="logo">
+                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
+                                </a>
+                                @endif
+                                @endauth
+                            </div>
+                        </div>
+                        <!-- /LOGO -->
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
+                        @php
+                            $user = App\Models\User::find(auth()->id());
+                            $wishlist = count(App\Models\Wishlist::where('user_id', $user->id)->get());
+                            $cart = count(App\Models\Cart::where('user_id', $user->id)->get());
+                            $user->load('cart');
+                            $carts = $user->cart;
+                            $categories = App\Models\Category::all();
+                        @endphp
                         <form action="/search">
                             @csrf
                             <select class="input-select" name="category">
@@ -66,6 +85,7 @@
                 <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
+                            @auth
                             <!-- Wishlist -->
                             <div>
                                 <a href="/wishlist">
@@ -118,7 +138,7 @@
                                 </div>
                             </div>
                             <!-- /Cart -->
-
+                            @endauth
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">
                                 <a href="#">
@@ -129,36 +149,6 @@
                             <!-- /Menu Toogle -->
                         </div>
                     </div>
-                   <!-- /ACCOUNT -->
-
-                @else
-                <div class="container">
-                    <div class="row">
-                        <!-- LOGO -->
-                        <div class="col-md-12">
-                            <div class="header-logo" style="justify-content: center">
-                                @guest
-                                <a href="/" class="logo">
-                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
-                                </a>
-                                @endguest
-                                @auth
-                                @if(Auth::user()->hasRole('seller') || Auth::user()->hasRole('admin'))
-                                <a href="#" class="logo">
-                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
-                                </a>
-                                @else
-                                <a href="/" class="logo">
-                                    <img src="{{ asset('electro/img/logo.png') }}" alt="">
-                                </a>
-                                @endif
-                                @endauth
-                            </div>
-                        </div>
-                        <!-- /LOGO -->
-                    </div>
-                </div>
-                @endif
                 <!-- /ACCOUNT -->
             </div>
             <!-- row -->

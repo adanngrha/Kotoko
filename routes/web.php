@@ -1,21 +1,22 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\FilterController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\WishlistController;
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Wishlist;
-use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\FilterController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,22 +31,11 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
 
-    $user = User::find(auth()->id());
     $products = Product::with('category')->get();
-    $categories = Category::all();
-    $wishlist = count(Wishlist::where('user_id', $user->id)->get());
-    $cart = count(Cart::where('user_id', $user->id)->get());
-    $user->load('cart');
-    $carts = $user->cart;
-
+    
     return view('index', [
         'title' => 'Welcome to Kotoko!',
-        'user' => $user,
         'products' => $products,
-        'categories' => $categories,
-        'wishlist' => $wishlist,
-        'cart' => $cart,
-        'carts' => $carts,
     ]);
 
 })->name('home');

@@ -1,5 +1,8 @@
 <!-- NAVIGATION -->
     <nav id="navigation">
+        @php
+            $categories = App\Models\Category::all();
+        @endphp
         <!-- container -->
         <div class="container">
             <!-- responsive-nav -->
